@@ -1,0 +1,181 @@
+/*
+File Name: navigation.css
+Date: 01/27/21
+Programmer: Fredy Chavez
+*/
+
+/* Based on http://kmturley.blogspot.com/2014/06/responsive-mobile-dropdown-navigation.html */
+/* Modified for mobile-first design */
+
+/* Set up menu */
+
+/* remove bullet in front of list items in menu and hide hamburger menu by default */
+ 
+.nav {
+	list-style-type: none;
+	margin-top: 0;
+    margin-bottom: 0;
+    overflow: hidden;
+}
+
+/* space between lines */
+
+.nav li {
+    text-align: center;
+}
+ 
+/* remove underline in links. */
+
+.nav li a {
+	text-decoration: none;
+    background-color: #FF0000;
+    color: #FFFFFF;
+    display: block;
+    padding: 10px 30px;
+    border-bottom: 1px solid #000000;
+}
+
+.nav li a:hover {
+	background-color: #FFFFFF;
+    color: #000000;
+}
+
+.nav li a:visited {
+    color: #000000;
+}
+
+/* Hide sub navigation menu items */
+
+ul li ul.dropdown {
+    display: none;/* hide submenu by default */
+}
+
+ul li:hover .dropdown {
+    display: block;/* show sub menu on hover */
+}
+
+/* clear float on line below to prepare for hamburger collapsable menu*/
+
+header .nav {
+	clear: both;
+	max-height: 0;
+	transition: max-height 1s ease-out;
+}
+
+/* menu icon for responsive hamburger menu */
+
+.menu-icon {
+ /* location of hamburger icon */
+	cursor: pointer;
+	display: inline-block;
+	float: right;
+	padding: 28px 20px;
+	position: relative;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.menu-icon .navicon {
+ /* center line of hamburger icon */
+	background: #333;
+	display: block;
+	height: 2px;
+	position: relative;
+	transition: background .2s ease-out;
+	width: 18px;
+    background-color: #FFFFFF;
+}
+
+.menu-icon .navicon:before, /* top and bottom lines of hamburger icon */
+.menu-icon .navicon:after {
+	background: #333;
+	content: '';
+	display: block;
+	height: 100%;
+	position: absolute;
+	transition: all .2s ease-out;
+	width: 100%;
+    background-color: #FFFFFF;
+}
+
+.menu-icon .navicon:before {
+	top: 5px;
+}
+
+.menu-icon .navicon:after {
+	top: -5px;
+}
+
+/* respond to click on hamburger menu icon */
+
+.menu-btn {
+ /* hide checkbox */
+	display: none;
+}
+
+.menu-btn:checked ~ ul {
+	max-height: 240px;
+}
+
+.menu-btn:checked ~ .menu-icon .navicon {
+	background: transparent;
+}
+
+/* animations */
+ 
+.menu-btn:checked ~ .menu-icon .navicon:before {
+	transform: rotate(-45deg);
+}
+
+.menu-btn:checked ~ .menu-icon .navicon:after {
+	transform: rotate(45deg);
+}
+
+.menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+.menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+	top: 0;
+}
+
+/* TABLET AND DESKTOP: CREATE HORIZONTAL NAVIGATION BAR AT 600 PX OR HIGHER */
+@media only screen and (min-width: 600px) {
+
+/* Note: Clear the float in the intro section so the text won't wrap around the menu. */
+    
+/* Display navigation horizontally */ 
+    
+    .nav {
+        display: inline;
+    }
+
+    /* make menu visible again and position relative */
+    
+    .nav li {
+        display: inline-block;
+        overflow: visible;
+        position: relative;
+        margin-bottom: 5px;
+        border: 1px solid #555555;
+        
+    }
+    
+    /* position the submenu absolute so it opens underneath the parent menu item */
+    
+    ul li ul.dropdown {
+        position: absolute;
+        z-index: 1;/* positions submenu infront of all other content */
+    }
+
+    .dropdown li {
+        min-width: 100%;/*set min width for submenu items*/
+        margin: 0;
+        border-top: none;
+        border-bottom: none;
+    }
+
+    /* hide the checkbox and label for it */
+    
+    .menu-icon, .menu-btn {
+        display: none;
+    }
+
+}

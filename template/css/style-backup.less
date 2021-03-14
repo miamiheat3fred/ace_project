@@ -1,0 +1,235 @@
+/*
+File Name: style.less
+Date: XX/XX/XX
+Programmer: XXXXXXX XXXXXXX
+*/
+
+/* INSERT LESS VARIABLES HERE */
+
+/* colors */
+
+@mBgColor: #E8E8E8;
+@tBgColor: #CCFFCC;
+@dBgColor: #D1EEEE;
+@footerColor: #9F00C5;
+@referencesHoverColor: #E8E8E8;
+@referencesBgColor: #0000FF;
+
+/* sizes */
+
+@mFontSize: 16px;
+@tFontSize: 15px;
+@dFontSize: 14px;
+@h1FontSize: 2em;
+@h2FontSize: 1.4em;
+@h3FontSize: 1.1em;
+@summaryFontSize: .6em;
+@summaryFirstFontSize: 1.5em;
+@designerFontSize: .75em;
+@contactFontSize: 0.9em;
+
+/* margins */
+
+@pHeadingMargin: 1em 0;
+@mBodyMargin: 0 1em;
+@tBodyMargin: 0 4%;
+@dBodyMargin: 0 3%;
+@olLiLeftMargin: 8px;
+
+/* MOBILE STYLES */
+
+body {
+	font-family: "Open Sans", sans-serif;
+	line-height: 1.5em;
+	background-color: @mBgColor;
+	font-size: @mFontSize;
+	margin: @mBodyMargin;
+}
+
+p, h1, h2, h3 {
+	margin: @pHeadingMargin;
+}
+
+h1, h2, h3 {
+	font-weight: bold;
+}
+
+h1 {
+	font-size: @h1FontSize;
+	text-shadow: 2px 2px #989898;
+	margin-bottom: 0;
+	margin-top: 0;
+	line-height: 2em;
+}
+
+h2 {
+	font-size: @h2FontSize;
+}
+
+h3 {
+	font-size: @h3FontSize;
+	font-style: italic;
+}
+
+ol {
+	list-style: decimal;
+	margin-left: 25px;
+}
+
+li {
+	line-height: 1.5em;
+}
+
+footer {
+	margin-bottom: 10px;
+	font-style: italic;
+	color: @footerColor;
+	text-align: center;
+}
+
+#references ul {
+	list-style-type: disc;
+	list-style-position: inside;
+}
+
+#references a:link, #references a:visited {
+	text-decoration: none;
+}
+
+#references a:hover {
+	text-decoration: underline;
+	color: @referencesHoverColor;
+	background-color: @referencesBgColor;
+}
+
+#container {
+	margin: 0 1em;
+}
+
+#summary {
+	font-size: @summaryFontSize;
+	font-style: italic;
+	line-height: 115%;
+	margin-top: 5px;
+	letter-spacing: 1px;
+}
+
+#summary:first-letter {
+	font-size: @summaryFirstFontSize;
+	font-weight: bold;
+}
+
+#designer {
+	font-size: @designerFontSize;
+	line-height: 1.1em;
+	text-align: left;
+}
+
+#contact {
+	letter-spacing: 3px;
+	font-size: @contactFontSize;
+}
+
+/* CSS GRID MOBILE */
+
+.butterflies {
+	display: grid;
+	grid-gap: 20px;
+	padding: 10px;
+}
+
+.item1 {
+	grid-column: 1 / span 12;
+	grid-row: 1;
+}
+
+.item2 {
+	grid-column: 1 / span 12;
+	grid-row: 2;
+}
+
+.item3 {
+	grid-column: 1 / span 12;
+	grid-row: 3;
+}
+
+/* TABLET STYLES */
+
+@media only screen and (min-width: 600px) {
+
+	body {
+		background-color: @tBgColor;
+		font-size: @tFontSize;
+		margin: @tBodyMargin;
+	}
+
+	h2 {
+		margin-top: 0;
+		margin-bottom: .8em;
+	}
+
+	h3 {
+		margin-top: 0;
+	}
+
+	ol {
+		margin-bottom: 15px;
+	}
+
+	ol li {
+		margin-left: @olLiLeftMargin;
+	}
+
+	ul {
+		margin-bottom: 1em;
+	}
+
+	#funfacts ol {
+		margin-left: 18px;
+	}
+    
+    /* CSS GRID TABLET */
+
+	.item1 {
+		grid-column: 1 / span 6;
+		grid-row: 1;
+	}
+
+	.item2 {
+		grid-column: 7 / span 6;
+		grid-row: 1;
+	}
+
+	.item3 {
+		grid-column: 1 / span 6;
+		grid-row: 2;
+	}
+}
+
+/* DESKTOP STYLES */
+
+@media only screen and (min-width: 1025px) {
+
+	body {
+		background-color: @dBgColor;
+		font-size: @dFontSize;
+		margin: @dBodyMargin;
+	}
+    
+/* CSS GRID DESKTOP */
+    
+	.item1 {
+		grid-column: 1 / span 4;
+		grid-row: 1;
+	}
+
+	.item2 {
+		grid-column: 5 / span 4;
+		grid-row: 1;
+	}
+
+	.item3 {
+		grid-column: 9 / span 4;
+		grid-row: 1;
+	}
+}
